@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+ENV["RAILS_ENV"] = "production"
+
+require "pathname"
+require "rake"
+
+require_relative "../config/boot"
+app_root = Configuration.app_root
+dataroot = Configuration.dataroot
+db_path  = Configuration.database_path
+
+chdir app_root do
+  mkdir_p dataroot unless dataroot.exist?
+
+  if db_path.file?
+    require "sqlite3"
+
+    app_migrations = Dir
+      .glob( app_root.join "db", "migrate", "*" )
+      .map { |path| File.basename(path).split("_").first }
+
+    begin
+      db = SQLite3::Database.new db_path.to_s
+      db_migrations = db
+        .execute("SELECT * FROM schema_migrations")
+        .map { |row| row.first }
+    rescue SQLite3::Exception => e
+      abort "Exception occurred: #{e}"
+    ensure
+      db.close if db
+    end
+
+    unless app_migrations.sort == db_migrations.sort
+      abort "Your database differs significantly from the app's schema"
+    end
+  else
+    db_root = db_path.parent
+    mkdir_p db_root unless db_root.exist?
+    sh "bin/rake db:setup"
+  end
+end

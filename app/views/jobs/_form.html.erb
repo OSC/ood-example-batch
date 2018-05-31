@@ -1,0 +1,26 @@
+<div class="row justify-content-start">
+  <div class="col-6">
+    <%= form_for(@job) do |f| %>
+      <div class="form-group">
+        <%= f.label :project %><br>
+        <%= f.text_field :project, class: "form-control", "aria-describedby" => "projectHelpBlock" %>
+        <small id="projectHelpBlock" class="form-text text-muted">
+          Project to be charged against.
+        </small>
+      </div>
+      <div class="form-group">
+        <%= f.label :param1 %><br>
+        <%= f.number_field :param1, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :param2 %><br>
+        <%= f.text_field :param2, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :notes %><br>
+        <%= f.text_area :notes, class: "form-control" %>
+      </div>
+      <%= button_tag icon("fas", "save", "Save"), class: "btn btn-primary btn-block" %>
+    <% end %>
+  </div>
+</div>

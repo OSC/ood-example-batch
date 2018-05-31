@@ -1,0 +1,15 @@
+#PBS -A <%= project %>
+#PBS -l walltime=00:10:00
+#PBS -l nodes=1:ppn=28
+#PBS -o job.log
+#PBS -j oe
+#PBS -S /bin/bash
+
+cd "${PBS_O_WORKDIR}"
+
+echo "[$(date)] Starting job..."
+
+echo "Param1 = <%= param1 %>"
+echo "Param2 = <%= param2 %>"
+
+echo "[$(date)] Job completed!"

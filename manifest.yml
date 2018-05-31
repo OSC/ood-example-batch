@@ -1,0 +1,7 @@
+name: Batch Job App
+icon: fa://gear
+description: |
+  Example [Ruby on Rails] app that submits and manages jobs on a local
+  cluster's resource manager.
+
+  [Ruby on Rails]: https://rubyonrails.org/
