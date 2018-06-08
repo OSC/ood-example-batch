@@ -58,10 +58,20 @@ only need to edit the files related to your domain science and its views.
 
 ### Configuration
 
-You will first want to edit the configuration file `config/ondemand.yml`. In
-particular you will want to specify the file name for the batch script as well
-as replace any occurrences of `jnicklas` with your user name and `foo` with the
-app name.
+All configuration is defined under `config/configuration_singleton.rb`.
+Although you will most likely want to override defaults using environment
+variables which you can specify in a `.env.local` file located in the root of
+the app.
+
+An example where we change the name of the batch script file that gets
+submitted to the scheduler (create `.env.local` and edit it as such):
+
+```shell
+SCRIPT_NAME="new_main.sh"
+```
+
+After restarting the app it will try to submit the file rendered under
+`template/new_main.sh` or `template/new_main.sh.erb` (see below).
 
 ### Job Template
 
