@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -45,7 +45,7 @@ end
 gem 'rails_12factor', group: :production
 gem 'pry-rails', :group => :development
 
-gem "bootstrap", "~> 4.1"
+gem "bootstrap", "~> 4.3.1"
 gem "font-awesome-sass", "5.0.9" # issues with compiling 'sassc'
 gem "dotenv", "~> 2.4"
 gem "ood_appkit", "~> 1.0"
