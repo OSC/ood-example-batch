@@ -23,33 +23,33 @@ packages your site uses through Software Collections.
 1. To deploy and run this app you will need to first go to your OnDemand
    sandbox directory (if it doesn't exist, then we create it):
 
-   ```console
-   $ mkdir -p ~/ondemand/dev
-   $ cd ~/ondemand/dev
-   ```
+    ```console
+    $ mkdir -p ~/ondemand/dev
+    $ cd ~/ondemand/dev
+    ```
 
 2. Then clone down this app and `cd` into it:
 
-   ```console
-   $ git clone git@github.com:OSC/ood-example-foo.git foo_app
-   Cloning into 'foo_app'...
-   $ cd foo_app
-   ```
+    ```console
+    $ git clone git@github.com:OSC/ood-example-foo.git foo_app
+    Cloning into 'foo_app'...
+    $ cd foo_app
+    ```
 
 3. Setup the app which includes downloading gem dependencies and building the
    database:
 
-   ```console
-   $ bin/setup
-   == Installing dependencies ==
-   ...
-   ```
+    ```console
+    $ bin/setup
+    == Installing dependencies ==
+    ...
+    ```
 
 4. Now you should be able to access this app from OSC OnDemand at
    https://ondemand.osc.edu/pun/dev/foo_app/
 
-   Note: You may need to replace the domain above with your center's OnDemand
-   portal location if not using OSC.
+    Note: You may need to replace the domain above with your center's OnDemand
+    portal location if not using OSC.
 
 ## Development
 
@@ -133,51 +133,51 @@ user controller actions are defined as:
 
 - `GET /jobs` => `JobsController#index`
 
-   List all jobs no matter their status.
+    List all jobs no matter their status.
 
 - `GET /jobs/:id` => `JobsController#show`
 
-   Show the details for a given job.
+    Show the details for a given job.
 
 - `GET /jobs/new` => `JobsController#new`
 
-   This is the form used to create a new job.
+    This is the form used to create a new job.
 
 - `POST /jobs` => `JobsController#create`
 
-   This is where the form used to create a new job is posted to. After a new
-   job is created, the user is redirected to the details view of this job.
+    This is where the form used to create a new job is posted to. After a new
+    job is created, the user is redirected to the details view of this job.
 
 - `GET /jobs/:id/edit` => `JobsController#edit`
 
-   This is the form used to update a given job's parameters.
+    This is the form used to update a given job's parameters.
 
 - `PATCH /jobs/:id` => `JobsController#update`
 
-   This is where the form used to update a given job is sent to. After the job
-   is updated, the user is redirected to the details view of this job.
+    This is where the form used to update a given job is sent to. After the job
+    is updated, the user is redirected to the details view of this job.
 
 - `PATCH /jobs/:id/stage` => `JobsController#stage`
 
-   Visiting this path will stage the job's template underneath a unique
-   directory in the app's data root with the user's parameters filled in. After
-   staging, the user is redirected back to the list page.
+    Visiting this path will stage the job's template underneath a unique
+    directory in the app's data root with the user's parameters filled in. After
+    staging, the user is redirected back to the list page.
 
 - `PATCH /jobs/:id/submit` => `JobsController#submit`
 
-   Visiting this path will submit a staged job to the resource manager. After
-   submitting, the user is redirected back to the list page.
+    Visiting this path will submit a staged job to the resource manager. After
+    submitting, the user is redirected back to the list page.
 
 - `PATCH /jobs/:id/stop` => `JobsController#stop`
 
-   Visiting this path will stop a job that is submitted to the resource
-   manager. After stopping, the user is redirected to the list page.
+    Visiting this path will stop a job that is submitted to the resource
+    manager. After stopping, the user is redirected to the list page.
 
 - `DELETE /jobs/1` => `JobsController#destroy`
 
-   Visiting this path will stop a submitted job, remove the staged directory,
-   and delete the record of the job from the database. After destroying the
-   job, the user is redirected back to the list page.
+    Visiting this path will stop a submitted job, remove the staged directory,
+    and delete the record of the job from the database. After destroying the
+    job, the user is redirected back to the list page.
 
 Feel free to remove actions or modify current ones. Examples being:
 
